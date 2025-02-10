@@ -1,7 +1,7 @@
-SERVER 1: ssh grp13-serv1@193.10.236.126
-----------------------------------------
-SERVER 2: ssh grp13-serv2@193.10.236.127
-----------------------------------------
+SERVER 1:      ssh grp13-serv1@193.10.236.126      
+--------------------------------------------------------------------
+SERVER 2:      ssh grp13-serv2@193.10.236.127
+--------------------------------------------------------------------
 
 Det här är en omfattande uppgift där du ska konfigurera en Apache-webbserver med virtuella hosts, DNS-poster och säkerhetsåtgärder, samt implementera dynamiska sidor för att visa SNMP-data.  
 
