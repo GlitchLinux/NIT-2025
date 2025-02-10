@@ -1,8 +1,8 @@
-############################
-2. Webserver (Apache2) på server2
+2.
+Webserver (Apache2) på server2
 Läs hela kapitel 19 "Web Hosting" 
-   (Läs hela stycket 19.4 "Apache HTTPD")
-       ((Läs hela sektionen 19.4.x "Virtual Host Configuration"))
+(Läs hela stycket 19.4 "Apache HTTPD")
+((Läs hela sektionen 19.4.x "Virtual Host Configuration"))
 
 Uppgiften nedan blir lättare om du stänger av HSTS
 
@@ -68,28 +68,3 @@ LOC
 AAAA (Vi använd addressformatet 2001:6b0:1d:36::xx där xx är serverns sista IP-nummer oktet (t.ex. blir 193.10.236.99 2001:6b0:1d:36::99 )
 (Ni behöver inte installera IPv6 på er server; detta är bara data i DNS-databasen.
 A         <-- Börja här! Inte överst i listan :-)
-Detta är alla "anvisningar" som kommer att publiceras. Nu är det dags att ni lär er hur man lär sig 👩🏻‍🎓
-
-0. Tjänsten SSHd  (och brandvägg, QEMU tools & Linux)
-Gör först alla anvisningar enligt "Lab 0" som finns på en annan Canvas-sida.
-Förbjudet att redovisa med "Console", ni skall använda SSH.
-
-Visa att det existerar anteckningar från installationen, ifall ni måste göra om alltihopa
-Visa med systemctl att   qemu-guest-agent   finns och är "active" samt "running" + Att IP-nummer syns i Proxmox
-SSH:
-Vilket portnummer använder SSH? TCP eller UDP?
-Visa dina ändringar i SSH's .conf-fil (t.ex. no root login)
-Visa slutet på log-filen för SSH
-Visa att ufw är inaktiv (inte "grön") och att iptables är aktiv med kommandot:  systemctl status ufw
--
-Givet din iptables konfiguration -- förstå utmatningen från   iptables -vL 
-  5b. Hitta på (olika) kommandon som ändrar paketräknaren. Ett kommando per rad
-Utifrån och in: Logga in på din maskin med SSH och
-visa att brandväggens räknare för SSH-paket ökar när du t.ex. gör en helt ny SSH-uppkoppling i ett annat fönster
-(Ledtråd? sudo iptables -L INPUT -v | grep icmp)
-Läs webb-sidan http://speedtest.tele2.net/
-Inifrån och ut: På din server: Ladda ner filen 100MB.zip med kommandot
-wget -O /dev/null http://speedtest.tele2.net/100MB.zip
-och visa vilken regel som används i brandväggen genom att se var paketräknaren ökar
-(  om det inte funkar: wget -O /dev/null http://ipv4.download.thinkbroadband.com/100MB.zip   )
-####################################
