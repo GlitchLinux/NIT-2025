@@ -1,3 +1,7 @@
+INT_SERVER_1 - ssh grp13-serv1@193.10.236.126
+
+INT_SERVER_2 - ssh grp13-serv2@193.10.236.127
+
 ```markdown
 # Guide för Webbserver och DNS-konfiguration
 
