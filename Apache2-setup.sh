@@ -56,17 +56,27 @@ install_apache() {
     sleep 1
 }
 
-# Configure firewall
+# Configure firewall using iptables
 configure_firewall() {
     header
-    echo -e "${YELLOW}Configuring firewall...${NC}"
-    if command -v ufw &> /dev/null; then
-        ufw allow "Apache Full"
-        ufw reload
-        check_status
+    echo -e "${YELLOW}Configuring firewall with iptables...${NC}"
+    
+    # Allow HTTP (port 80)
+    iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+    check_status
+    
+    # Allow HTTPS (port 443)
+    iptables -A INPUT -p tcp --dport 443 -j ACCEPT
+    check_status
+    
+    # Save iptables rules (if applicable)
+    if command -v iptables-save &> /dev/null; then
+        iptables-save > /etc/iptables/rules.v4
+        echo -e "${GREEN}iptables rules saved${NC}"
     else
-        echo -e "${YELLOW}ufw not installed, skipping firewall configuration${NC}"
+        echo -e "${YELLOW}iptables-save not found, rules will not persist after reboot${NC}"
     fi
+    
     sleep 1
 }
 
