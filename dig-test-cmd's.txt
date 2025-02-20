@@ -1,0 +1,25 @@
+dig @193.10.236.126 -x 193.10.236.126 PTR # Pointer Record
+dig @193.10.236.126 grp13.lab.hv.se MX # Mail Exchange Record
+dig @193.10.236.126 grp13.lab.hv.se SOA # Start of Authority Record
+dig @193.10.236.126 server1.grp13.lab.hv.se AAAA # IPv6 Address Record
+dig @193.10.236.126 server1.grp13.lab.hv.se A # IPv4 Address Record
+dig @193.10.236.126 www.grp13.lab.hv.se CNAME # Canonical Name Record
+
+dig @8.8.8.8 server1.grp13.lab.hv.se
+dig @8.8.8.8 server2.grp13.lab.hv.se
+dig @193.10.236.127 grp13.lab.hv.se SOA
+dig @193.10.236.127 grp13.lab.hv.se AXFR
+
+Visa att rekursiva frågor blockeras för obehöriga maskiner:
+dig @193.10.236.126 google.com
+dig @193.10.236.126 hv.se
+
+Visa att er zon är delegerad (endast framlänges) och därmed kopplad till DNS på hela Internet:
+dig @8.8.8.8 ns grp13.lab.hv.se
+nslookup 193.10.236.126 # inte delegerad baklänges
+
+Visa att DNS-slavservern fungerar korrekt (full kopiering av mastern, automatiska uppdateringar, etc etc)
+- ändra serienummer 
+- sudo systemctl restart bind9
+dig @193.10.236.127 grp13.lab.hv.se SOA
+
