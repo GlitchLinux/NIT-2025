@@ -1,0 +1,31 @@
+GRUNDCONF
+
+#SET HOSTNAME FIRST
+
+configure terminal
+line console 0
+password cisco
+login
+exit
+line console 0
+enable secret class
+service password-encryption
+line con 0
+logging sync
+line vty 0 15
+password cisco
+login
+exit
+no ip domain-lookup
+banner motd #AUTHORIZED ACCESS ONLY!#
+ip domain-name ccna-lab.com
+crypto key generate rsa modulus 1024
+username admin password admin
+ip ssh version 2
+line vty 0 15
+transport input ssh
+line vty 0 15
+login local
+line vty 0 15
+login local
+do wr
